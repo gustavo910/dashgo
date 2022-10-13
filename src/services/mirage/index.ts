@@ -10,7 +10,7 @@ type User = {
 export function makeServer(){
     const server = createServer({
         serializers:{
-            applications:ActiveModelSerializer,
+            application:ActiveModelSerializer,
         },
         models:{
             user: Model.extend<Partial<User>>({})
@@ -47,6 +47,8 @@ export function makeServer(){
                 const pageEnd =  pageStart + Number(per_page);
 
                 const users= this.serialize(schema.all('user'))
+                .users
+                .sort((a,b)=>a.createdAt-b.createdAt)
                 .users.slice(pageStart,pageEnd)
 
                 return new Response(

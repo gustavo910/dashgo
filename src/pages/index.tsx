@@ -45,7 +45,7 @@ export default function SignIn() {
           >
             <Stack spacing="4">
             <Input name="email" type="email" label="E-mail" error={errors.email} {...register('email')}/>
-            <Input name="password" type="Password" label="Senha" error={errors.password} {...register('password')} />
+            <Input name="password" type="password" label="Senha" error={errors.password} {...register('password')} />
             
               </Stack>
 
